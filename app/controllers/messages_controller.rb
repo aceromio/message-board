@@ -17,6 +17,11 @@ class MessagesController < ApplicationController
   end
     def edit
     end
+    
+   def destroy
+    @message.destroy
+    redirect_to root_path, notice: 'メッセージを削除しました'
+   end
   
   def update
     if @message.update(message_params)
@@ -27,6 +32,7 @@ class MessagesController < ApplicationController
       render 'edit'
     end
   end
+
 
   private
   def message_params
